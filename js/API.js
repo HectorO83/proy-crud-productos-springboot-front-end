@@ -1,13 +1,13 @@
 const url = 'http://localhost:8085/producto';
-const urlproductos= 'http://localhost:8085/productos';
+const urlproductos = 'http://localhost:8085/productos';
 
 // Cuando se crea un nuevo Producto
-export const nuevoProducto = async cliente => {
+export const nuevoProducto = async producto => {
 
     try {
         await fetch(url, {
             method: 'POST',
-            body: JSON.stringify( cliente ),
+            body: JSON.stringify(producto),
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -20,22 +20,22 @@ export const nuevoProducto = async cliente => {
 
 
 // Obtiene todos los Productos
-export const obtenerProductos = async()=>{
+export const obtenerProductos = async() => {
+
+        try {
+            const resultado = await fetch(urlproductos);
+            const productos = await resultado.json();
+
+            return productos;
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    // Elimina un Producto...
+export const eliminarProducto = async id => {
 
     try {
-        const resultado = await fetch(urlproductos);
-        const productos = await resultado.json();
-        
-        return productos;
-    } catch (error) {
-        console.log(error)
-    }
-}
-// Elimina un Producto...
-export const eliminarProducto = async id => {
-    
-    try {
-       
+
         await fetch(`${url}/${id}`, {
             method: 'DELETE'
         });
@@ -43,6 +43,3 @@ export const eliminarProducto = async id => {
         console.log(error);
     }
 }
-
-
-
