@@ -1,6 +1,6 @@
-import {  obtenerProductos, eliminarProducto } from './API.js';
+import { obtenerProductos, eliminarProducto } from './API.js';
 
-(function () {
+(function() {
     const listado = document.querySelector('#listado-productos');
 
     document.addEventListener('DOMContentLoaded', mostrarProductos);
@@ -12,7 +12,7 @@ import {  obtenerProductos, eliminarProducto } from './API.js';
 
         productos.forEach(producto => {
             const { nombre, descripcion, marca, precio, id } = producto;
-           
+
             const row = document.createElement('tr');
 
             row.innerHTML += `

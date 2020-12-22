@@ -2,7 +2,7 @@ import { mostrarAlerta, validar } from './funciones.js';
 import { nuevoProducto } from './API.js';
 
 
-(function () {
+(function() {
     const formulario = document.querySelector('#formulario');
     formulario.addEventListener('submit', validarProducto);
 
@@ -17,17 +17,14 @@ import { nuevoProducto } from './API.js';
         const rubro = document.querySelector('#rubro').value;
 
 
-
-
-
         const producto = {
-            nombre, 
-            descripcion, 
-            marca, 
-            precio, 
-            cantidad, 
-            rubro 
-        } ;
+            nombre,
+            descripcion,
+            marca,
+            precio,
+            cantidad,
+            rubro
+        };
 
         if (validar(producto)) {
             // Mostrar mensaje
@@ -37,5 +34,5 @@ import { nuevoProducto } from './API.js';
 
         nuevoProducto(producto);
     }
-    
+
 })();
